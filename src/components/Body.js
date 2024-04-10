@@ -1,8 +1,15 @@
 import React from 'react'
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import LogIn from './LogIn'
 import Browse from './Browse'
+
 const Body = () => {
+
+
+
+
     return (
         <div>
             <BrowserRouter>
