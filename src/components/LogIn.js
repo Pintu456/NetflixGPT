@@ -6,8 +6,8 @@ import { validateData } from '../utils/validate';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { addUser } from '../utils/userSlice';
-import { PROFILE_ICON } from '../utils/constant';
-const LogIn = () => {
+import { BG_URL, PROFILE_ICON } from '../utils/constant';
+const Login = () => {
     const [isSignIn, setIsSignIn] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
 
@@ -74,9 +74,9 @@ const LogIn = () => {
         <div>
             <Header />
             <div className=' absolute'>
-                <img src="https://assets.nflxext.com/ffe/siteui/vlv3/7ca5b7c7-20aa-42a8-a278-f801b0d65fa1/fb548c0a-8582-43c5-9fba-cd98bf27452f/IN-en-20240326-popsignuptwoweeks-perspective_alpha_website_medium.jpg" alt="background" />
+                <img src={BG_URL} alt="background " className=' object-cover w-screen h-screen ' />
             </div>
-            <form onSubmit={(e) => e.preventDefault()} className=' absolute w-3/12 p-12 bg-black my-40 mx-auto left-0 right-0 text-white rounded-lg bg-opacity-75 '>
+            <form onSubmit={(e) => e.preventDefault()} className=' absolute w-full  sm:w-3/12 p-12 bg-black my-40 mx-auto left-0 right-0 text-white rounded-lg bg-opacity-75 '>
                 <h1 className=' font-bold text-3xl py-4'>{isSignIn ? "Sign In" : "Sign Up"}</h1>
                 {!isSignIn && <input ref={name} type="text" placeholder='full name' className=' my-4 p-2 w-full bg-zinc-500' />}
                 <input type="email" ref={email} placeholder='Email' className=' my-4 p-2 w-full bg-zinc-500' />
@@ -89,4 +89,4 @@ const LogIn = () => {
     )
 }
 
-export default LogIn
+export default Login;

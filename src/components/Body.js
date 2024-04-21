@@ -2,7 +2,7 @@ import React from 'react'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import LogIn from './LogIn'
+import LogIn from './Login'
 import Browse from './Browse'
 
 const Body = () => {
@@ -11,14 +11,14 @@ const Body = () => {
 
 
     return (
-        <div>
-            <BrowserRouter>
-                <Routes>
-                    <Route path='/' element={<LogIn />} />
-                    <Route path='/browse' element={<Browse />} />
-                </Routes>
-            </BrowserRouter>
-        </div>
+
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<LogIn />} />
+                <Route path='/browse' element={<Browse />} />
+            </Routes>
+        </BrowserRouter>
+
     )
 }
 
