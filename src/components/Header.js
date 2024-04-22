@@ -10,6 +10,7 @@ import { toggleGptSearchView } from '../utils/gptSlice';
 const Header = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const showGptSeaech = useSelector(store => store.gpt.showGptSearch)
     const user = useSelector((store) => store.user)
     const signOutHandler = () => {
         signOut(auth).then(() => {
@@ -28,13 +29,18 @@ const Header = () => {
                 const { uid, email, displayName } = user;
                 // ...
                 dispatch(addUser({ uid: uid, email: email, displayName: displayName }))
+
                 navigate("/browse")
-            } else {
+            }
+
+            else {
                 // User is signed out
                 // ...
                 dispatch(removeUser())
                 navigate("/")
+
             }
+
         });
         return () => unsubscribe();
     }, []);
@@ -46,7 +52,7 @@ const Header = () => {
             <img className=' w-44' src={NETFLIX_LOGO} alt="logo" />
 
             {user && <div className=' flex p-4'>
-                <button className=' p-2 mx-4 bg-purple-800 text-white rounded-md' onClick={gptToggleHandleClick}>GPTSearch</button>
+                <button className=' p-2 mx-4 bg-purple-800 text-white rounded-md' onClick={gptToggleHandleClick}>{!showGptSeaech ? "GPTSearch" : "Go Home"}</button>
                 <img className='w-12 h-12 p-1 hidden sm:block rounded-full' src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg" alt="usericon" />
                 <button onClick={signOutHandler} className=' text-slate-300' >(Sign Out)</button>
             </div>}

@@ -7,6 +7,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfi
 import { auth } from '../utils/firebase';
 import { addUser } from '../utils/userSlice';
 import { BG_URL, PROFILE_ICON } from '../utils/constant';
+
 const Login = () => {
     const [isSignIn, setIsSignIn] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
